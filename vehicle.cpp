@@ -75,7 +75,6 @@ void sender_thread(c_vehicle& tmp)
         std::cout << "[Client] : message sent from client to server " << std::endl; 
 }
 
-
 void on_message(const std::shared_ptr<vsomeip::message> &_response)
 {
         std::shared_ptr<vsomeip::payload> _payload = _response->get_payload() ; 
@@ -84,11 +83,10 @@ void on_message(const std::shared_ptr<vsomeip::message> &_response)
         std::cout << "[CLIENT] : this is invoked by a notification " << _ss.str() << std::endl;
      
 }
-int main(int argc, char *argv[])
+
+void communicate(char *argv[])
 {
 
-      if (argc > 1)
-      {
       c_vehicle _ov1(argv[1],argv[2],argv[3]);
       std::string _client_name = "client " + std::string(argv[1]); 
       app = vsomeip::runtime::get()->create_application(_client_name);
@@ -112,7 +110,14 @@ int main(int argc, char *argv[])
       // has to be passed 
       std::thread sender(sender_thread,std::ref(_ov1)); 
       app->start();
-        
+
+}
+int main(int argc, char *argv[])
+{
+
+      if (argc > 1)
+      {
+      communicate(argv); 
       // delete objects
       // delete (_ov1); 
       }

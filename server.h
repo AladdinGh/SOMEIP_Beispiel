@@ -13,7 +13,7 @@
 #include <chrono>
 
 
-// dervice id and message id construct the message id inthe someip packet
+// device id and message id construct the message id inthe someip packet
 #define _SERVICE_ID 0x1776
 #define _INSTANCE_ID 0x5676
 #define _METHOD_ID 0x0421
