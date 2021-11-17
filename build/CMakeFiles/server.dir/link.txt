@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -std=c++11   CMakeFiles/server.dir/server.cpp.o  -o server -rdynamic /usr/local/lib/libvsomeip.so.2.8.0 -lboost_system -lboost_thread -lboost_log -lboost_chrono -lboost_date_time -lboost_atomic -lboost_log_setup -lboost_filesystem -lboost_regex -lpthread -Wl,-rpath,/usr/local/lib 
