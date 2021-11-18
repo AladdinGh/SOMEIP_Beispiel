@@ -8,7 +8,6 @@ std::mutex mutex;
 std::condition_variable _condition;
 
 
-
 c_vehicle::c_vehicle():  _Id("1") , _Vin("PF_AG_690"), _IP("192.168.10.1")
 {
 }
@@ -112,6 +111,7 @@ void communicate(char *argv[])
       app->start();
 
 }
+
 int main(int argc, char *argv[])
 {
 

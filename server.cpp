@@ -1,7 +1,5 @@
 #include "server.h"
 
-
-
 //global declaration of the app
 // TODO : transform it to a class member 
 std::shared_ptr<vsomeip::application> app ;
@@ -33,19 +31,14 @@ this->o_vehicles->push_back(*v_tmp);
 
 void on_message(const std::shared_ptr<vsomeip::message> &_request)
 {
-   //std::cout << "[Server]: received message from client " << _request->get_client() << std::endl; 
-   
+
    // get the payload
    std::shared_ptr<vsomeip::payload> _payload = _request->get_payload(); 
-   //vsomeip::length_t l = _payload->get_length(); 
+
    
    std::stringstream ss ; 
    ss << _payload->get_data() << std::endl; 
-   //for (vsomeip::length_t i = 0 ; i<l ; i ++)
-   //{
-   //	ss << std::setw(2)<< std::setfill('0')  << _payload->get_data()+i << "  "  << std::endl; 
-   //
-   //}
+
    std::cout << "[Server] : Data received from client " << ss.str();  
    // so we got the wakeup call with car infos , now we send notifications
    // this needs to be done wile the message processing loop is active
@@ -91,6 +84,7 @@ void send_notification ()
 
 
 }
+
 void communicate()
 {
     app = vsomeip::runtime::get()->create_application("Server"); 
